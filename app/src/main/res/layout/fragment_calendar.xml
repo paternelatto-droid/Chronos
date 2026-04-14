@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/CalendarFragment_Root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/Background"
+    tools:context=".views.CalendarFragment">
+
+    <!-- HEADER (month + jours) -->
+    <LinearLayout
+        android:id="@+id/CalenderFragment_Header_Calendar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="12dp">
+
+            <ImageButton
+                android:id="@+id/CalenderFragment_Button_Prev"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                app:srcCompat="@drawable/ic_arrow_back_white"
+                android:contentDescription="@string/prev" />
+
+            <TextView
+                android:id="@+id/CalenderFragment_TextView_CurrentDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/current_date"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/CalenderFragment_Button_Next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                app:srcCompat="@drawable/ic_arrow_forward_white"
+                android:contentDescription="@string/next" />
+        </LinearLayout>
+
+        <!-- Weekday row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/CalenderFragment_TextView_Mon"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="6dp"
+                android:text="@string/mon"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:background="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/CalenderFragment_TextView_Tue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="6dp"
+                android:text="@string/tue"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:background="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/CalenderFragment_TextView_Wed"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="6dp"
+                android:text="@string/wed"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:background="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/CalenderFragment_TextView_Thu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="6dp"
+                android:text="@string/thu"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:background="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/CalenderFragment_TextView_Fri"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="6dp"
+                android:text="@string/fri"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:background="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/CalenderFragment_TextView_Sat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="6dp"
+                android:text="@string/sat"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:background="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/CalenderFragment_TextView_Sun"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="6dp"
+                android:text="@string/sun"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:background="@color/colorPrimary" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- GRID (dates) - placé sous le header -->
+    <GridView
+        android:id="@+id/CalenderFragment_GridView_Dates"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/CalenderFragment_Header_Calendar"
+        android:numColumns="7"
+        android:verticalSpacing="4dp"
+        android:horizontalSpacing="4dp"
+        android:stretchMode="columnWidth"
+        android:padding="4dp" />
+
+    <!-- Séparateur placé directement sous la GridView -->
+    <View
+        android:id="@+id/CalenderFragment_Separator"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#CCCCCC"
+        android:layout_below="@id/CalenderFragment_GridView_Dates"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp" />
+
+    <!-- Titre de la liste d'événements (sous le séparateur) -->
+    <TextView
+        android:id="@+id/CalenderFragment_TextView_EventTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/CalenderFragment_Separator"
+        android:text="Événements"
+        android:textStyle="bold"
+        android:padding="8dp"
+        android:textSize="16sp"
+        android:background="#F5F5F5" />
+
+    <!-- RecyclerView des événements, alignée en bas et placée sous le titre.
+         Elle prend l'espace restant entre le titre et le bas de l'écran. -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/CalenderFragment_RecyclerView_Events"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/CalenderFragment_TextView_EventTitle"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="4dp"
+        android:padding="4dp" />
+
+    <TextView
+        android:id="@+id/CalenderFragment_TextView_NoEvents"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Aucun événement"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:padding="8dp"
+        android:textStyle="italic"
+        android:layout_below="@id/CalenderFragment_TextView_EventTitle"
+        android:visibility="gone"/>
+
+    <!-- FloatingActionButton en bas à droite -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/CalendarFragment_FAB_AddEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:contentDescription="Ajouter un événement"
+        app:srcCompat="@drawable/ic_add"
+        android:tint="@color/white"
+        app:backgroundTint="@color/colorPrimary"/>
+
+</RelativeLayout>

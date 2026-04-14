@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/BottomNavigation_Item_Calendar"
+        android:icon="@drawable/ic_home"
+        android:title="@string/calendar" />
+    <item
+        android:id="@+id/BottomNavigation_Item_UpcomingEvents"
+        android:icon="@drawable/ic_list_events"
+        android:title="@string/upcoming_events" />
+    <item
+        android:id="@+id/BottomNavigation_Item_Membre"
+        android:icon="@drawable/ic_users_group"
+        android:title="Liste de membre" />
+    <item
+        android:id="@+id/BottomNavigation_Item_Settings"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/user_settings" />
+
+</menu>

@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/AddNewEventActivity_Toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:titleTextColor="@android:color/white"/>
+
+
+    <!-- ScrollView avec tout le formulaire -->
+    <ScrollView
+        android:id="@+id/scrollViewForm"
+        android:layout_below="@id/AddNewEventActivity_Toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Titre de l'événement -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/AddNewEventActivity_TextInputLayout_EventTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Titre de l'événement">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- 🔽 Type d'événement (event_type_id) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Type d'événement"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <Spinner
+                    android:id="@+id/spinnerEventType"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:padding="8dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/Grey" />
+
+            <!-- Switch All Day -->
+           <!-- <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/AddNewEventActivity_Switch_AllDayEvent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Événement sur toute la journée"
+                android:layout_marginTop="12dp"/>
+-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <!-- Date de début -->
+                <LinearLayout
+                    android:id="@+id/AddNewEventActivity_LinearLayout_SetDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:padding="12dp"
+                    android:layout_marginTop="12dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Date début"
+                        android:textColor="?attr/textColor"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/AddNewEventActivity_TexView_SetDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sélectionner la date"
+                        android:textSize="16sp"/>
+                </LinearLayout>
+
+                <!-- Date de fin -->
+                <LinearLayout
+                    android:id="@+id/AddNewEventActivity_LinearLayout_SetEndDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:padding="12dp"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Date fin"
+                        android:textColor="?attr/textColor"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/AddNewEventActivity_TextView_SetEndDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sélectionner la date de fin"
+                        android:textSize="16sp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <!-- Heure (masquée si all-day) -->
+            <!--<LinearLayout
+                android:id="@+id/AddNewEventActivity_LinearLayout_SetTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="12dp"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/AddNewEventActivity_TexView_SetTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sélectionner l'heure"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+-->
+            <!-- Localisation -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/AddNewEventActivity_TextInputLayout_Location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Lieu"
+                android:layout_marginTop="12dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Note -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/AddNewEventActivity_TextInputLayout_Note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Note"
+                android:layout_marginTop="12dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:minLines="3"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Couleur de note -->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="12dp"
+    android:layout_marginTop="12dp"
+    android:gravity="center_vertical">
+    <TextView
+        android:id="@+id/AddNewEventActivity_TextView_NoteColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/note_color"
+        android:textStyle="bold"
+        android:textColor="?attr/textColor"/>
+
+    <TextView
+        android:id="@+id/AddNewEventActivity_TextView_PickNoteColor"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="12dp"
+        android:background="@drawable/circle"/>
+
+</LinearLayout>
+
+            <!-- Bloc pour la gestion des reminders -->
+            <LinearLayout
+                android:id="@+id/reminderSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp"
+                android:layout_marginTop="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Rappels (minutes avant)"
+                        android:textStyle="bold"
+                        android:textColor="@color/black" />
+
+                    <Button
+                        android:id="@+id/btnAddReminder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+ Ajouter" />
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerReminders"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"/>
+            </LinearLayout>
+
+
+            <!-- Visibilité -->
+            <RadioGroup
+                android:id="@+id/radioGroupVisibility"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="12dp">
+
+                <RadioButton
+                    android:id="@+id/radioPublic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Public"/>
+
+                <RadioButton
+                    android:id="@+id/radioPrivate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Privé"/>
+
+                <RadioButton
+                    android:id="@+id/radioRestricted"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Restreint"/>
+            </RadioGroup>
+
+            <!-- Sélection utilisateurs si restreint -->
+            <LinearLayout
+                android:id="@+id/containerUserSelection"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginTop="8dp">
+
+                <Button
+                    android:id="@+id/buttonSelectUsers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sélectionner les participants"/>
+
+                <TextView
+                    android:id="@+id/textViewParticipantsCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 participants"
+                    android:layout_marginTop="4dp"/>
+
+                <TextView
+                    android:id="@+id/textViewParticipants"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:layout_marginTop="4dp"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

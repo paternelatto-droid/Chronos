@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <Spinner
+        android:id="@+id/spinnerDayOfWeek"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <EditText android:id="@+id/etSpecificDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Date spécifique (YYYY-MM-DD)"/>
+    <EditText android:id="@+id/etStart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Heure début (HH:mm)"/>
+    <EditText android:id="@+id/etEnd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Heure fin (HH:mm)"/>
+</LinearLayout>

@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarAddMember"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:elevation="4dp"
+            app:title="Ajouter un membre"
+            app:titleTextColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/CalenderFragment_TextView_EventTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Infos. du membre"
+            android:textStyle="bold"
+            android:padding="8dp"
+            android:layout_marginTop="5dp"
+            android:textSize="16sp"
+            android:background="#F5F5F5" />
+
+        <EditText
+            android:id="@+id/etLastName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nom"
+            android:inputType="textPersonName"
+            android:layout_marginTop="8dp"/>
+        <EditText
+            android:id="@+id/etFirstName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Prénom"
+            android:inputType="textPersonName"
+            android:layout_marginTop="16dp"/>
+
+
+        <RadioGroup
+            android:id="@+id/rgGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <RadioButton
+                android:id="@+id/rbMale"
+                android:text="Homme"
+                android:checked="true"/>
+            <RadioButton
+                android:id="@+id/rbFemale"
+                android:text="Femme"/>
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/etPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Téléphone"
+            android:inputType="phone"
+            android:layout_marginTop="8dp"/>
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:layout_marginTop="8dp"/>
+
+        <EditText
+            android:id="@+id/etAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Adresse"
+            android:inputType="textPostalAddress"
+            android:layout_marginTop="8dp"/>
+
+        <EditText
+            android:id="@+id/etDateOfBirth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Date de naissance"
+            android:focusable="false"
+            android:clickable="true"
+            android:layout_marginTop="8dp"/>
+
+        <EditText
+            android:id="@+id/etBaptismDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Date de baptême"
+            android:focusable="false"
+            android:clickable="true"
+            android:layout_marginTop="8dp"/>
+
+<!--
+
+        <View
+            android:id="@+id/CalenderFragment_Separator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#CCCCCC"
+            android:layout_below="@id/CalenderFragment_GridView_Dates"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp" />
+-->
+
+        <!-- ✅ SWITCH POUR CREER COMPTE USER -->
+        <TextView
+            android:id="@+id/CalenderFragment_TextView_EventTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Infos. du compte utilisateur"
+            android:textStyle="bold"
+            android:padding="8dp"
+            android:layout_marginTop="5dp"
+            android:textSize="16sp"
+            android:background="#F5F5F5" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingTop="5dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Créer un compte utilisateur"
+                android:textSize="16sp" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchCreateUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <!-- ✅ BLOC UTILISATEUR (MASQUÉ PAR DÉFAUT) -->
+        <LinearLayout
+            android:id="@+id/layoutUserFields"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:paddingTop="10dp">
+
+            <EditText
+                android:id="@+id/inputUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nom d'utilisateur (username)" />
+
+            <EditText
+                android:id="@+id/inputPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Mot de passe"
+                android:inputType="textPassword" />
+
+            <!-- Option rôle -->
+            <Spinner
+                android:id="@+id/spinnerRoles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <!-- Activer / désactiver utilisateur -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingTop="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Compte actif"/>
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switchUserActive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnSaveMember"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enregistrer"
+            android:layout_marginTop="16dp"/>
+    </LinearLayout>
+</ScrollView>
